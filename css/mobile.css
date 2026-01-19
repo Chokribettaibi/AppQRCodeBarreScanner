@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #0f172a;
+  color: white;
+}
+
+.app {
+  max-width: 430px;
+  margin: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background: #020617;
+  padding: 15px;
+  text-align: center;
+}
+
+.camera {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#reader {
+  width: 100%;
+  max-width: 320px;
+}
+
+.result {
+  background: #020617;
+  padding: 15px;
+  text-align: center;
+}
+
+#output {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #22c55e;
+  word-break: break-all;
+}
+
+.actions {
+  display: flex;
+}
+
+.actions button {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#stopBtn {
+  background: #ef4444;
+  color: white;
+}
+
+#clearBtn {
+  background: #334155;
+  color: white;
+}

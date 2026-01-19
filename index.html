@@ -1,57 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Scanner QR / Barcode</title>
-        
-        <!-- library -->
-        <script src="https://unpkg.com/html5-qrcode"></script>
-        
-        <style>
-            body {
-                font-family: Arial;
-                text-align: center;
-                background: #f4f4f4;
-            }
-            
-            #reader {
-                width: 300px;
-                margin: auto;
-            }
-            
-            #result {
-                margin-top: 20px;
-                font-size: 18px;
-                color: green;
-            }
-            </style>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Scanner App</title>
+
+    <!-- Mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Scanner Lib -->
+    <script src="https://unpkg.com/html5-qrcode"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/mobile.css" />
   </head>
   <body>
-    <div class="container">
-        <h2>📷 QR / Code à barre Scanner</h2>
-        
-        <div id="reader"></div>
-        
-        <div id="result">Resultat: —</div>
+    <div class="app">
+      <header class="app-header">
+        <h2>📷 Scanner</h2>
+      </header>
 
+      <section class="camera">
+        <div id="reader"></div>
+      </section>
+
+      <section class="result">
+        <p>Resultat</p>
+        <div id="output">—</div>
+      </section>
+
+      <footer class="actions">
+        <button id="stopBtn">⛔ Stop</button>
+        <button id="clearBtn">🗑️ Clear</button>
+      </footer>
     </div>
-      
-      <script>
-          function onScanSuccess(decodedText, decodedResult) {
-              document.getElementById("result").innerHTML =
-              "Resultat: <b>" + decodedText + "</b>";
-            }
-            
-            let html5QrcodeScanner = new Html5QrcodeScanner(
-                "reader",
-                {
-                    fps: 10,
-                    qrbox: 250,
-                },
-                false
-            );
-            
-            html5QrcodeScanner.render(onScanSuccess);
-            </script>
+
+    <script src="js/app.js"></script>
   </body>
-  </html>
+</html>
