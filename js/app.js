@@ -27,9 +27,20 @@ stopBtn.addEventListener("click", () => {
 clearBtn.addEventListener("click", () => {
   output.textContent = "—";
 });
+let detaProduit ;
+if (localStorage.detaProduit != null) {
+  detaProduit = JSON.parse(localStorage.getItem("detaProduit"));
+}else {
+  detaProduit = [];
+}
 
 startBtn.addEventListener("click", () => {
+  // Récupérer le résultat scanné depuis le localStorage
   localStorage.setItem("scannedResult", output.textContent);
+  // Ajouter le résultat scanné à la liste des produits
+  detaProduit.push(output.textContent);
+  console.log(detaProduit);
+  localStorage.setItem("detaProduit", JSON.stringify(detaProduit));
 });
 
 // show data in stoke
@@ -37,7 +48,7 @@ const stokeResult = document.getElementById("stoke-result");
 window.addEventListener("load", () => {
   const scannedResult = localStorage.getItem("scannedResult");
   if (scannedResult) {
-    stokeResult.textContent = localStorage.getItem("scannedResult");
+    stokeResult.textContent += localStorage.getItem("scannedResult");
   }
 });
 // // Récupérer le résultat scanné depuis le localStorage
@@ -47,4 +58,7 @@ window.addEventListener("load", () => {
 //     output.textContent = scannedResult;
 //   }
 // });
+
+// creat produit 
+
 
